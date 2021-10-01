@@ -1,0 +1,54 @@
+REACTJS - NOTES - Section 1
+
+1. Welcome to the course!
+* Nothing
+
+2. What is ReactJS?
+* React is a JS library used to create UI, its the V in MVC.
+* JS in the browser is able to manipulate HTML DOM, which allows users to see the change without sending a http request to the server for a new html page.
+
+3. Why React instead of “Just JavaScript”?
+* We use React instead of JS, because JS has an imperative approach(when you say how to get what you want), we have long code for one component, we have
+to repeat that code again for more component but react has reactive(you register a callback and a framework is responsible for calling your callback correctly) approach and components can be reused.
+* React has declarative(when you say what you want) , component focused approach.
+
+4. Building Single-Page Applications (SPA) with React
+* React can be used to control parts and even the entire page content.
+* Not only that we can change routes, which gives the illusion that we’re switching pages, as react creates SPA with multiple routes.
+
+5. Exploring ReactJS’s alternatives - (Angular/Vue)
+* React - lean and focused, component based UI library. Certain Features (e.g. Routing) are added via community packages.
+* Angular - Complete component based UI framework, packed with features. Uses Typescript, can be an overkill for smaller projects.
+* Vue - Complete component based UI framework, includes most features. A bit less popular than React and Angular.
+
+6. Join our online learning community
+* https://academind.com/community/ - Discord
+
+7. About this course and course outline
+* Basics and Foundation (Introducing key features)-
+- Components and building UI
+- Working with events and data: “Props” and “State”
+- Styling react apps and components
+- Introduction into React Hooks
+* Advanced Concepts (Building for production)
+- Side Effects, “refs” and more React Hooks
+- React’s Context API and Redux
+- Forms, HTTP Requests and “Custom Hooks”
+- Routing, Deployment, NextJS and more
+* Summaries and Exercises (Optimising your time)
+- JS refresher
+- ReactJS summary
+
+8. The two ways(paths) of taking this course
+* Go through lecture 1 step by step, do JS refresher, make notes, complete coding lessons, understand and revise them, at the end do the react summary mini
+course to get an overview.
+
+9. Getting the most out of this course.
+* Watch the videos (Choose your pace)
+* Code Along and Practice (even If it isn’t told)
+* Debug Errors and Explore Solutions (also use code attachments)
+* Help each other and learn together (Discord, Q&A Board)
+
+10. Setting up the course Dev Environment (Code Editor)
+* Ctrl + shift + f - format via prettier
+	
