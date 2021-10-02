@@ -1,0 +1,210 @@
+REACTJS - NOTES
+
+
+Day 2
+
+Section 2 : Javascript Refresher
+
+1. Module Introduction
+* Nothing
+
+2. Understanding “let” and “const”
+* Let and const were introduced in ES6
+* Use var as less as possible
+* Let is for variable values, const is for constant values
+* Const variables cannot be reassigned
+
+3. Arrow Functions
+* Normal Function
+	function add(a, b){
+		return a+b;
+	}
+	add(3,5);
+* Arrow Function
+	const add = (a, b) => {
+	return a+b;
+	}
+	add(3, 5);
+
+- In case of only 1 line in function body that too only return statement, we can write as 
+	const add = (a, b) => a+b;
+- If only one return statement and param is also one then,
+	const add = num => a+b;
+
+4. Exports and Imports (Modules)
+* Default Import/Export
+- const person = {
+	…
+	}
+	export default person
+
+- Import person from “./person” or import p from “./person”
+
+* Named Import/Export
+- Export const person =() => {…}
+- Import { person } from “./person” or import {p as person} from “./person” or import * from “./person” for all
+
+5. Understanding Classes
+* Class are blueprints for objects
+* Class can have both properties(variables attached with classes/objects) and methods(functions attached with classes/objects)
+class person {
+	name = max; //property
+	call = () => {…} //method
+}
+* Class is instantiated with the “new” keyword
+* Class are more convenient way of creating constructor functions
+const myPerson = new Person()
+	myPerson.call()
+console.log(myPerson.name)
+* Classes also supports inheritance, which means, you have another class you inherit from taking it’s all properties and methods and potentially adding new properties and methods. (Prototypes). Eg Class Person extends Employee
+
+class Human {
+  constructor() {
+    this.gender = "Male";
+  }
+  printGender() {
+    console.log(this.gender);
+  }
+}
+
+class Person extends Human {
+  constructor() {
+    super();
+    //As we must call super constructor in derived class before accessing "this" or returning from derived constructor
+    this.name = "Max";
+//     this.gender = "Female";
+    // it will update gender to female
+  }
+  printName() {
+    console.log(this.name);
+  }
+}
+
+const p = new Person();
+p.printName();
+p.printGender();
+
+5. Classes, Properties and methods
+* Unlike ES6, we don’t need to pass property with constructor or methods with old syntax,
+* In ES7 syntax, properties can be passed directly and methods can be passed using arrow functions, so the problem with ‘this’ will be eliminated
+
+class Human {
+  gender = "Male";
+  printGender = () => {
+    //this is still needed inside method
+    console.log(this.gender);
+  }
+}
+
+class Person extends Human {
+  //no need for super in derived class/constructor for properties
+    name = "Max";
+    printName = () => {
+    console.log(this.name);
+  }
+}
+
+const p = new Person();
+p.printName();
+p.printGender();
+
+6. The Spread and Rest Operator
+* Spread : Used to split up array elements or object properties
+- Const newArray = {…oldArray, 2, 5}
+- const a = [1,2,3];
+- const b = [...a,4,5];
+- console.log(b);
+- Const newObject = {…oldObject, newProp: 5}
+- const a = {
+-   name: "abc"
+- }
+- const b = {
+-   ...a,
+-   age: 24
+- }
+- console.log(b);
+* Rest: Used to merge a list of function arguments into an array
+- Function sortArgs(…args) {return args.sort();}
+- const filter(...p){
+-   return p.filter(i => i === 6);
+- }
+- console.log(filter(1,7,8,2));
+- console.log(filter(1,8,2));
+
+7. Destructuring
+* Easily extract array elements or object properties and store them in variables
+- Array destructuring
+
+[a,b] = [‘hello’,’max’];
+console.log(a); //hello
+console.log(b); //max
+
+const number = [1, 2, 3];
+[num1, , num3] = number;
+console.log(num1, num3);
+
+- Object destructuring
+
+{name} = {name:’Max’, age:’28’}
+console.log(name) //Max
+console.log(age) //Undefined
+
+8. Reference and Primitive types
+* Numbers, strings, booleans are primitive types
+- Whenever you assign these variable to another variable, a real copy is created.
+* Arrays and objects are reference types
+
+const person = {
+  name: 'Max'
+}
+const secondPerson = person;
+console.log(secondPerson);
+//{ name: 'Max' }
+//it will print the same value as the first person but it will not actually have copied the person instead.
+//Person the object is stored in memory and in the constant person we store a pointer to that place in memory. And if we then assign person to secondPerson that pointer will be copied.
+
+person.name = 'Anna';
+console.log(secondPerson);
+//{ name: 'Max' }
+//{ name: 'Anna' }
+// So if we change name on person we automatically change it for secondPerson.
+
+Note - This will become important in React because it can lead to unexpected behaviors.
+If you copy objects or arrays like this because you then may manipulate one object in one place in the
+app and accidentally manipulate another usage of the same object in another place of the app.
+Therefore we will learn techniques to copy this in an immutable way which means we copy that by really
+copying the object and not just a pointer for that we can use this spread operator.
+For eg - 
+const person = {
+  name: 'Max'
+}
+const secondPerson = {...person};
+console.log(secondPerson);
+//{ name: 'Max' }
+//it will print the same value as the first person but it will not actually have copied the person instead.
+//Person the object is stored in memory and in the constant person we store a pointer to that place in memory. And if we then assign person to secondPerson that pointer will be copied.
+
+person.name = 'Anna';
+console.log(secondPerson);
+{ name: 'Max' }
+{ name: 'Max' }
+// So if we change name on person we automatically change it for secondPerson.
+
+9. Refreshing Array Functions
+Only map function is explained in the video, there are many more
+
+const numbers = [1, 2, 3];
+let double = numbers.map((i) => {return i*2;})
+console.log(double);
+
+10. Wrap up
+Nothing
+
+11. Next-gen JS Summary
+https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/8199180#overview
+(Look for attached pdf)
+
+12. JS Array Functions
+https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/8199160#overview
+
+
